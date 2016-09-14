@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Hola Mundo 1</string>
+    <string name="primerSaludo">Nuestro Programa para saludar</string>
+    <string name="pulsar">Saludar</string>
+    <string name="escribe">Escribe tu nombre</string>
+    <string name="action_setting">Settings</string>
+
+</resources>
