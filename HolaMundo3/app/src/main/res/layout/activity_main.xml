@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    android:background="@color/colorBackground">
+
+            <TextView
+            android:text="@string/saludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <EditText
+            android:id="@+id/miTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+            <Button
+            android:id="@+id/miBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Hola"
+                android:background="@color/buttonColor"
+                android:textColor="@color/textColor"/>
+            <TextView
+            android:id="@+id/miLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

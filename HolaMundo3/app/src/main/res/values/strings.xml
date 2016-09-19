@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HolaMundo3</string>
+    <string name="saludo">Prueba de saludo</string>
+    <string name="volver">Vuelve a casa vuelve por navidad</string>
+</resources>

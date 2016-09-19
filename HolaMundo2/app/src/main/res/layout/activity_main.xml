@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pulsar"
-        android:background="@color/colorBoton"/>
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTextoButton" />
     <TextView
         android:id="@+id/miLbl"
         android:layout_width="wrap_content"
