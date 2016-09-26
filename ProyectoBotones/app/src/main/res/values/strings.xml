@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProyectoBotones</string>
+    <string name="boton1">Linear Layout</string>
+    <string name="boton2">Table Layout</string>
+    <string name="boton3">Relative Layout</string>
+    <string name="boton4">Grid Layout</string>
+</resources>
