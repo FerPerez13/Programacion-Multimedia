@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="4" >
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mira como cambia el color!" />
+
+    <TableRow>
+        <Button
+            android:id="@+id/BotonRojo"
+            android:text="Rojo"
+            android:textColor="@color/rojo" />
+
+        <Button
+            android:id="@+id/BotonAmarillo"
+            android:text="Amarillo"
+            android:textColor="@color/amarillo" />
+
+        <Button
+            android:id="@+id/BotonAzul"
+            android:text="Azul"
+            android:textColor="@color/azul" />
+    </TableRow>
+    <TableRow
+        android:gravity="right">
+        <Button
+            android:id="@+id/BotonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limpiar" />
+    </TableRow>
+
+</TableLayout>
