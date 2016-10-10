@@ -46,6 +46,16 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
     </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="FOTO"/>
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/braum"/>
+    </TableRow>
     <TableRow
         android:gravity="right">
         <Button
