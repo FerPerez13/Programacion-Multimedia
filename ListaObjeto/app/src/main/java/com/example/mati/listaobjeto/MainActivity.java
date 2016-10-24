@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 holder.titulo = (TextView) item.findViewById(R.id.tvTitulo);
                 holder.subtitulo = (TextView) item.findViewById(R.id.tvSubtitulo);
                 holder.imagen = (ImageView)item.findViewById(R.id.ivImagen);
-                
+
                 item.setTag(holder);
             } else {
                 holder = (ViewHolder) item.getTag();
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 holder.subtitulo.setText(datos[i].getSubtitulo());
                 holder.imagen.setBackground(getDrawable(datos[i].getImagen()));
                 return (item);
+
         }
 
     }
