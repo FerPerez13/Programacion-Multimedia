@@ -14,10 +14,12 @@
         android:id="@+id/random"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="reDraw"
         android:text="¡¡Dibuja!!"/>
 
     <view
-        class="com.example.mati.ImgRandom"
+        class="com.example.mati.figurasaleatorias.RandomShapeView"
+        android:id="@+id/randoms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

@@ -7,7 +7,19 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class ImgRandom extends View {
+public class ImgRandom extends Activity {
+    private RandomShapeView areaDrawing;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_img_random);
+        areaDrawing = (RandomShapeView)findViewById(R.id.randoms);
+    }
+
+    public void reDraw(View clickedButton){
+        areaDrawing.invalidate();
+    }
 
 
 }
