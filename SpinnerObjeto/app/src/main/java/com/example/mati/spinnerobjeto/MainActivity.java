@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             View vistadesplegada = getView(position, convertview, parent);
 
             vistadesplegada.setOnClickListener(new View.OnClickListener() {
+                //No se porque está este onClick pero funciona
                 @Override
                 public void onClick(View v) {
                     final TextView title = (TextView) findViewById(R.id.titulo);
