@@ -96,12 +96,9 @@ public class MainActivity extends AppCompatActivity {
                     miintent.putExtras(mibundle);
 
                     startActivity(miintent);
-
                 }
             });
-
             return vistadesplegada;
-
         }
     }
 }
