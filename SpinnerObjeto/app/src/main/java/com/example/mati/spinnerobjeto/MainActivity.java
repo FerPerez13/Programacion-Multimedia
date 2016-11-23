@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             return item;
         }
+
         // NECESARIO PARA QUE EL SPINNER FUNCIONE, SINO FALLA
 
         public View getDropDownView(final int position, View convertview, ViewGroup parent) {
