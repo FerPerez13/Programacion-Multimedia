@@ -13,7 +13,7 @@ public class Pantalla2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla2);
 
-        //final ImageView img2 = (ImageView)findViewById(R.id.img2);
+        final ImageView img2 = (ImageView)findViewById(R.id.img2);
         final TextView modelo2 = (TextView)findViewById(R.id.modelo2);
         final TextView precio2 = (TextView)findViewById(R.id.precio2);
         final TextView extras2 = (TextView)findViewById(R.id.extras2);
@@ -22,32 +22,28 @@ public class Pantalla2 extends AppCompatActivity {
         final TextView coste2 = (TextView)findViewById(R.id.coste2);
 
         Bundle bundle = getIntent().getExtras();
-        Seleccion seleccion = (Seleccion)bundle.getSerializable("seleccion");
+        Seleccion seleccion = (Seleccion)bundle.getSerializable("Sel");
 
-        //img2.setImageResource(seleccion.getCoche().getImg());
+        img2.setImageResource(seleccion.getCoche().getImg());
         modelo2.setText(seleccion.getCoche().getModelo());
         precio2.setText(seleccion.getCoche().getPrecio()+"€");
 
-        int c = 0;
-        if(seleccion.isAireAcondicionado())
-            c++;
-        if(seleccion.isGps())
-            c++;
-        if (seleccion.isRadioDVD())
-            c++;
+        int extras = seleccion.getExtras();
 
-        int extras=50*c;
-
-        extras2.setText(extras);
+        extras2.setText(""+extras+"€");
 
         tiempo2.setText(seleccion.getTiempo());
 
-        String seguro = "Sin Seguro";
-        if(seleccion.isSeguro()){
+        int seg = seleccion.getSeguro();
+
+        String seguro  = "Sin Seguro";
+        if(seg==1)
             seguro = "Con Seguro";
-        }
+
         seguro2.setText(seguro);
 
-        coste2.setText(seleccion.getPrecio());
+        coste2.setText(""+seleccion.getPrecio());
+
+        modelo2.setText("prueba");
     }
 }

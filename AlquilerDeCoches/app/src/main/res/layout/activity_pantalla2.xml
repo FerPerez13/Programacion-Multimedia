@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/img2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"/>
 
     <LinearLayout
@@ -84,11 +84,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CosteTotal: "/>
+            android:text="Coste Total: "/>
         <TextView
             android:id="@+id/coste2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/HoraPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora del Pedido"/>
+    <DigitalClock
+        android:layout_gravity="right"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:textSize="50dp"/>
 
 </LinearLayout>

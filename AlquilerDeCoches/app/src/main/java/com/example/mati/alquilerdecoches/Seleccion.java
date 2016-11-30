@@ -5,34 +5,28 @@ import java.io.Serializable;
 /**
  * Created by mati on 21/11/16.
  */
+
 public class Seleccion implements Serializable {
     private Coche coche;
-    private boolean seguro;
-    private boolean aireAcondicionado;
-    private boolean gps;
-    private boolean radioDVD;
     private String tiempo;
-    private String precio;
+    private int seguro;
+    private int extras;
+    private double precio;
 
     public Seleccion() {
         this.coche = null;
-        this.seguro = false;
-        this.aireAcondicionado = false;
-        this.gps = false;
-        this.radioDVD = false;
         this.tiempo = "";
-        this.precio= "";
+        this.seguro = 0;
+        this.extras=0;
+        this.precio= 0;
     }
 
-    public Seleccion(Coche coche, boolean seguro, boolean aireAcondicionado, boolean gps, boolean radioDVD, String tiempo, String precio) {
+    public Seleccion(Coche coche, String tiempo,int seguro, int extras, double precio) {
         this.coche = coche;
-        this.seguro = seguro;
-        this.aireAcondicionado = aireAcondicionado;
-        this.gps = gps;
-        this.radioDVD = radioDVD;
         this.tiempo = tiempo;
+        this.seguro = seguro;
+        this.extras=extras;
         this.precio = precio;
-
     }
 
     public Coche getCoche() {
@@ -43,52 +37,25 @@ public class Seleccion implements Serializable {
         this.coche = coche;
     }
 
-    public boolean isSeguro() {
-        return seguro;
-    }
-
-    public void setSeguro(boolean seguro) {
-        this.seguro = seguro;
-    }
-
-    public boolean isAireAcondicionado() {
-        return aireAcondicionado;
-    }
-
-    public void setAireAcondicionado(boolean aireAcondicionado) {
-        this.aireAcondicionado = aireAcondicionado;
-    }
-
-    public boolean isGps() {
-        return gps;
-    }
-
-    public void setGps(boolean gps) {
-        this.gps = gps;
-    }
-
-    public boolean isRadioDVD() {
-        return radioDVD;
-    }
-
-    public void setRadioDVD(boolean radioDVD) {
-        this.radioDVD = radioDVD;
-    }
-
     public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
     }
 
-    public void setPrecio(String precio) {
+    public void setSeguro(int seguro){ this.seguro = seguro;}
+
+    public void setExtras(int extras){ this.extras=extras; }
+
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public String getTiempo() {
+    public String getTiempo() { return tiempo; }
 
-        return tiempo;
-    }
+    public int getSeguro(){ return seguro; }
 
-    public String getPrecio() {
+    public int getExtras(){return extras;}
+
+    public double getPrecio() {
         return precio;
     }
 
@@ -96,11 +63,9 @@ public class Seleccion implements Serializable {
     public String toString() {
         return "Seleccion{" +
                 "coche=" + coche +
-                ", seguro=" + seguro +
-                ", aireAcondicionado=" + aireAcondicionado +
-                ", gps=" + gps +
-                ", radioDVD=" + radioDVD +
                 ", tiempo='" + tiempo + '\'' +
+                ", seguro='" + seguro + '\'' +
+                ", extras='" + extras + '\'' +
                 ", precio='" + precio + '\'' +
                 '}';
     }

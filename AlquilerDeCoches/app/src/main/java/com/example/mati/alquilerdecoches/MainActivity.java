@@ -22,10 +22,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Coche[] coches = new Coche[]{
-            new Coche("Megane","Renault","20", R.drawable.megan1),
-            new Coche("X-11", "Ferrari", "100", R.drawable.ferrari1),
-            new Coche("Leon", "Seat", "30", R.drawable.leon3),
-            new Coche("Fiesta","Ford","40", R.drawable.fiesta2),
+            new Coche("Megane","Renault",20, R.drawable.megan1),
+            new Coche("X-11", "Ferrari", 100, R.drawable.ferrari1),
+            new Coche("Leon", "Seat", 30, R.drawable.leon3),
+            new Coche("Fiesta","Ford",40, R.drawable.fiesta2),
     };
 
     @Override
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.radio1:
                         break;
                     case R.id.radio2:
-                        seleccion.setSeguro(true);
+                        seleccion.setSeguro(1);
                         break;
                 }
             }
@@ -81,28 +81,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 double precioTotal = 0;
                 int hora = Integer.parseInt(horas.getText().toString());
-                int precioCoche=0;
-                if (seleccion.getCoche().getPrecio().toString()!="")
-                    precioCoche = Integer.parseInt(seleccion.getCoche().getPrecio().toString());
+                double precioCoche=0;
+                int extras = 0;
+
+                precioCoche = seleccion.getCoche().getPrecio();
                 precioTotal=hora*precioCoche;
 
                 if(check1.isChecked()==true) {
-                    seleccion.setAireAcondicionado(true);
                     precioTotal+=50;
+                    extras++;
                 }
                 if(check2.isChecked()==true){
-                    seleccion.setGps(true);
                     precioTotal+=50;
+                    extras++;
                 }
                 if(check3.isChecked()==true) {
-                    seleccion.setRadioDVD(true);
                     precioTotal+=50;
+                    extras++;
                 }
-                if (seleccion.isSeguro()==true)
-                    precioTotal = precioTotal+(precioTotal*20/100);
 
                 precio.setText(""+precioTotal+" €");
-                seleccion.setPrecio(""+precioTotal);
+                seleccion.setExtras(extras*50);
+                seleccion.setPrecio(precioTotal);
             }
         });
 
@@ -110,14 +110,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 seleccion.setTiempo(horas.getText().toString());
-                Intent intent = new Intent(MainActivity.this, Pantalla2.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("seleccion", seleccion);
-                intent.putExtras(bundle);
-                startActivity(intent);
 
                 TextView prueba2 = (TextView)findViewById(R.id.prueba2);
                 prueba2.setText(seleccion.toString());
+
+                Intent intent = new Intent(MainActivity.this, Pantalla2.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Sel", seleccion);
+                intent.putExtras(bundle);
+
+                startActivity(intent);
             }
         });
     }
@@ -143,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             marca.setText(coches[i].getMarca());
 
             TextView precio = (TextView)item.findViewById(R.id.precio);
-            precio.setText(coches[i].getPrecio());
+            precio.setText(""+coches[i].getPrecio());
 
             ImageView img = (ImageView)item.findViewById(R.id.imagenCoche);
             img.setBackground(getDrawable(coches[i].getImg()));
@@ -152,26 +154,6 @@ public class MainActivity extends AppCompatActivity {
         }
         public View getDropDownView(final int position, View convertView, ViewGroup parent ){
             final View vistaDesplegada = getView(position, convertView, parent);
-
-            vistaDesplegada.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final TextView modelo = (TextView)findViewById(R.id.modelo);
-                    modelo.setText(coches[position].getModelo());
-                    final TextView marca = (TextView)findViewById(R.id.marca);
-                    marca.setText(coches[position].getMarca());
-                    final TextView precio = (TextView)findViewById(R.id.precio);
-                    precio.setText(coches[position].getPrecio());
-                    final ImageView img = (ImageView)findViewById(R.id.imagenCoche);
-
-                    String mod = modelo.getText().toString();
-                    String mar = marca.getText().toString();
-                    String pre = precio.getText().toString();
-
-                    Coche coche2 = new Coche(mod, mar, pre, R.id.imagenCoche);
-
-                }
-            });
             return vistaDesplegada;
         }
     }
