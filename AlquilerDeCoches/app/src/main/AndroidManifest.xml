@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pantalla2"></activity>
+        <activity android:name=".Pantalla2" />
+        <activity android:name=".Acerca" />
+        <activity android:name=".Dibujo"></activity>
     </application>
 
 </manifest>
