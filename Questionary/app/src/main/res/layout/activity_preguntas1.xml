@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_preguntas1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="com.splash.banana.questionary.Preguntas1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:text="Pregunta 1"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="¿En que posiciones ha jugado Nautilus?"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/nautilus"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_gravity="center"/>
+
+
+    <CheckBox
+        android:text="TOP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/res11" />
+
+    <CheckBox
+        android:text="JUNGLA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/res12" />
+
+    <CheckBox
+        android:text="MID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/res13" />
+
+    <CheckBox
+        android:text="ADC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/res14" />
+
+    <CheckBox
+        android:text="SUPPORT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/res15" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonColor"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:text="Siguiente"/>
+
+
+</LinearLayout>
