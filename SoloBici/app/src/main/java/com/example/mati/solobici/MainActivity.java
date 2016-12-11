@@ -47,6 +47,14 @@ public class MainActivity extends Activity {
                 lanzarSalir();
             }
         });
+        //Boton y escuchador para la pantalla "Preferencias"
+        bPreferencias = (Button) findViewById(R.id.preferencias);
+        bPreferencias.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lanzarPreferencias();
+            }
+        });
     }
 
     //Metodo que activa la pantalla Juego
@@ -61,8 +69,13 @@ public class MainActivity extends Activity {
         startActivity(i);
     }
 
+    //Metodo que activa la pantalla de Preferencias
+    public void lanzarPreferencias(){
+        Intent i = new Intent(this, Preferencias.class);
+        startActivity(i);
+    }
 
-    //Metodo que activa la pantalla AcercaDe
+    //Metodo que activa el Salir
     public void lanzarSalir(){
         finish();
     }
