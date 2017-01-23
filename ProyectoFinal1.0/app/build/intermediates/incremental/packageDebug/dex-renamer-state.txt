@@ -1,0 +1,7 @@
+#Mon Jan 16 12:46:53 CET 2017
+base.0=/home/mati/AndroidStudioProjects/ProyectoFinal1.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a63304b89c5a41307660c5140b5e591c4170f2d8
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/mati/AndroidStudioProjects/ProyectoFinal1.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cb1bce26369f3e53799f2d54affe3d0859c4ade6/classes.dex
+base.1=/home/mati/AndroidStudioProjects/ProyectoFinal1.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cb1bce26369f3e53799f2d54affe3d0859c4ade6
+file.0=/home/mati/AndroidStudioProjects/ProyectoFinal1.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a63304b89c5a41307660c5140b5e591c4170f2d8/classes.dex

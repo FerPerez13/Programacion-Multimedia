@@ -1,0 +1,7 @@
+#Mon Jan 16 11:40:50 CET 2017
+base.0=/home/mati/AndroidStudioProjects/ListadeTareas/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_10bd6028d02e45b007ec2b8adf7376009e9445ff
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/mati/AndroidStudioProjects/ListadeTareas/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61985194b0c9e46e06115bf8c590c23cba1cd945/classes.dex
+base.1=/home/mati/AndroidStudioProjects/ListadeTareas/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61985194b0c9e46e06115bf8c590c23cba1cd945
+file.0=/home/mati/AndroidStudioProjects/ListadeTareas/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_10bd6028d02e45b007ec2b8adf7376009e9445ff/classes.dex
