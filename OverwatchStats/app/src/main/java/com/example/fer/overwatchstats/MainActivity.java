@@ -2,13 +2,9 @@ package com.example.fer.overwatchstats;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ButtonBarLayout;
-import android.support.v7.widget.MenuItemHoverListener;
-import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import static com.example.fer.overwatchstats.OverStatsDAO.initiateDB;
+
 public class MainActivity extends AppCompatActivity {
 
     //Abrimos la base de datos en modo escritura
-    private PersonajesSQLiteHelper personajesSQLiteHelper = new PersonajesSQLiteHelper(this, "BDPersonajes", null, 1);
+
     //Referencia de la base de datos para modificarla
-    private SQLiteDatabase bd = personajesSQLiteHelper.getWritableDatabase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +29,7 @@ public class MainActivity extends AppCompatActivity {
         final Button loginBtn = (Button)findViewById(R.id.logButton);
         final Button signinBtn = (Button)findViewById(R.id.signButton);
 
-        if (bd!=null){
-            //Metemos el usuario admin de ejemplo
-            String user = "admin";
-            bd.execSQL("INSERT INTO Usuarios (user) VALUES ("+user+")");
-        }
+        //initiateDB();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         toast1.show();
 
                         //Sentencia SQL para crear nueva tabla
-                        bd.execSQL("INSERT INTO Usuarios (user) VALUES ("+nomUsuario+")");
+                        //bd.execSQL("INSERT INTO Usuarios (user) VALUES ("+nomUsuario+")");
 
                         dialogInterface.dismiss();
                     }

@@ -1,5 +1,6 @@
 package com.example.fer.overwatchstats;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +11,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class Login extends AppCompatActivity {
+    private static Context myContext;
 
     Spinner spinner;
-    final static String usuarios[]={"admin", "BananaSplash", "maprile9"};
+    final static String usuarios[]={"m0renill0","BananaSplash"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,5 +47,9 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static Context getMyContext(){
+        return myContext;
     }
 }

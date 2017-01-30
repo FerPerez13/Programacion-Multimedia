@@ -2,7 +2,10 @@ package com.example.fer.overwatchstats;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class IntroDatos extends AppCompatActivity {
 
@@ -38,11 +41,34 @@ public class IntroDatos extends AppCompatActivity {
         setContentView(R.layout.activity_intro_datos);
 
         final ImageView imageView = (ImageView)findViewById(R.id.imgPersonaje);
+        final Button cancel = (Button)findViewById(R.id.cancelar);
+        final Button guardar = (Button)findViewById(R.id.guardar);
+
 
         Bundle bundle = getIntent().getExtras();
         int seleccion = (int)bundle.getInt("int");
         //int seleccion = 2;
 
         imageView.setImageResource(per[seleccion].getImagen());
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Sentencias para guardar los datos en la base de datos
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "Datos de la partida guardados correctamente", Toast.LENGTH_SHORT);
+                toast1.show();
+                finish();
+            }
+        });
+
     }
 }

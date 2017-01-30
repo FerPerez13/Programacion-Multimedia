@@ -20,6 +20,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultado: "/>
+
+        <RadioGroup
+            android:id="@+id/resultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left">
+            <RadioButton
+                android:id="@+id/gana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ganada"/>
+            <RadioButton
+                android:id="@+id/empate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empate"/>
+            <RadioButton
+                android:id="@+id/pierde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perdida"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,25 +133,50 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
-    
-    <Button
-        android:id="@+id/guardar"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extras de la partida: "/>
+        <CheckBox
+            android:id="@+id/cambioHeroe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cambio de héroe"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:text="Guardar"/>
+        android:orientation="horizontal"
+        android:gravity="right">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        <Button
+            android:id="@+id/guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Guardar"/>
 
-    <Button
-        android:id="@+id/cancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:text="Cancelar"/>
-    
+        <Button
+            android:id="@+id/cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Cancelar"/>
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

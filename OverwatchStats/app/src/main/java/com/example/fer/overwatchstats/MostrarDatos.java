@@ -2,6 +2,8 @@ package com.example.fer.overwatchstats;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class MostrarDatos extends AppCompatActivity {
@@ -38,10 +40,18 @@ public class MostrarDatos extends AppCompatActivity {
         setContentView(R.layout.activity_mostrar_datos);
 
         final ImageView imageView = (ImageView)findViewById(R.id.imgPersonaje);
+        final Button volver = (Button)findViewById(R.id.volver);
 
         Bundle bundle = getIntent().getExtras();
         int seleccion = (int)bundle.getInt("int");
 
         imageView.setImageResource(per[seleccion].getImagen());
+
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

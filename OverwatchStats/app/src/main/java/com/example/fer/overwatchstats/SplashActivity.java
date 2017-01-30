@@ -12,14 +12,15 @@ import android.widget.TextView;
 public class SplashActivity extends Activity {
 
     // Duración en milisegundos que se mostrará la pantalla de inicio
-    private final int DURACION_SPLASH = 8000; // 8 segundos
+    private final int DURACION_SPLASH = 4000; // 4 segundos
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        final TextView loading = (TextView)findViewById(R.id.loading);
+        final TextView loading = (TextView)findViewById(R.id.loadText);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -44,7 +45,7 @@ public class SplashActivity extends Activity {
 
         new Handler().postDelayed(new Runnable(){
             public void run(){
-                // Cuando pasen los 3 segundos, pasamos a la actividad principal de la aplicación
+                // Cuando pasen los segundos, pasamos a la actividad principal de la aplicación
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
