@@ -14,7 +14,7 @@ public class Login extends AppCompatActivity {
     private static Context myContext;
 
     Spinner spinner;
-    final static String usuarios[]={"m0renill0","BananaSplash"};
+    final static String usuarios[]={"admin", "maprile9", "m0renill0","BananaSplash"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,6 +2,7 @@ package com.example.fer.overwatchstats;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,23 +14,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import static com.example.fer.overwatchstats.OverStatsDAO.initiateDB;
 
 public class MainActivity extends AppCompatActivity {
-
-    //Abrimos la base de datos en modo escritura
-
-    //Referencia de la base de datos para modificarla
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Abrimos la base de datos en modo escritura
+        PartidasSQLiteHelper partidas = new PartidasSQLiteHelper(this, "OverStats",null,1);
+
+        //Referencia de la base de datos para modificarla
+        final SQLiteDatabase db = partidas.getWritableDatabase();
+
+        //Esto es para introducir un usuario nuevo
+        /*
+        if (db!=null){
+            db.execSQL("INSERT INTO usuarios (user) VALUES ('admin');");
+        }
+        */
+
         final Button loginBtn = (Button)findViewById(R.id.logButton);
         final Button signinBtn = (Button)findViewById(R.id.signButton);
 
-        //initiateDB();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //Mensaje de que se ha creado correctamente el usuario
+
                         Toast toast1 =
                                 Toast.makeText(getApplicationContext(),
                                         "Usuario "+ nomUsuario.getText().toString() +" creado correctamente", Toast.LENGTH_SHORT);
@@ -100,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
                         toast1.show();
 
                         //Sentencia SQL para crear nueva tabla
-                        //bd.execSQL("INSERT INTO Usuarios (user) VALUES ("+nomUsuario+")");
+                        nomUsuario.getText().toString();
+                        //db.execSQL("INSERT INTO Usuarios (user) VALUES ("+nomUsuario+")");
 
                         dialogInterface.dismiss();
                     }

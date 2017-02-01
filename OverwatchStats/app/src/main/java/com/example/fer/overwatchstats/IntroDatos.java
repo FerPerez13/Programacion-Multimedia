@@ -47,7 +47,6 @@ public class IntroDatos extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         int seleccion = (int)bundle.getInt("int");
-        //int seleccion = 2;
 
         imageView.setImageResource(per[seleccion].getImagen());
 
