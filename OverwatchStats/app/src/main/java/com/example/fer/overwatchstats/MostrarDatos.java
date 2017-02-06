@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MostrarDatos extends AppCompatActivity {
 
@@ -43,7 +44,15 @@ public class MostrarDatos extends AppCompatActivity {
         final Button volver = (Button)findViewById(R.id.volver);
 
         Bundle bundle = getIntent().getExtras();
-        int seleccion = (int)bundle.getInt("int");
+        String usuario = bundle.getString("user");
+        int seleccion = bundle.getInt("int");
+
+        //Mensaje de usuario logeado correctamente
+        Toast toast1 =
+                Toast.makeText(getApplicationContext(),
+                        "Usuario: "+ usuario + "\nPersonaje: "+per[seleccion].getNombre(), Toast.LENGTH_SHORT);
+        toast1.show();
+        //Fin Toast
 
         imageView.setImageResource(per[seleccion].getImagen());
 

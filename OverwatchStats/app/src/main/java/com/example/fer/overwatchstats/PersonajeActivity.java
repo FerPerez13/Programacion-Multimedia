@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PersonajeActivity extends AppCompatActivity {
 
@@ -46,6 +47,8 @@ public class PersonajeActivity extends AppCompatActivity {
     };
     private int seleccion;
 
+    public static Bundle bundle = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,22 @@ public class PersonajeActivity extends AppCompatActivity {
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
         final Button intro = (Button)findViewById(R.id.introDatos);
         final Button ver = (Button)findViewById(R.id.verDatos);
+
+        //Recojo el bundle para saber el usuario
+        Bundle miBundle = getIntent().getExtras();
+        String usuario = miBundle.getString("Texto1");
+
+        bundle.putString("user",usuario); //Esto es lo que falla CUIDAAAAAAAAOOOOO
+
+
+        //Mensaje de usuario logeado correctamente
+        Toast toast1 =
+                Toast.makeText(getApplicationContext(),
+                        "Usuario "+ usuario + " logeado correctamente", Toast.LENGTH_SHORT);
+        toast1.show();
+        //Fin Toast
+
+
 
         AdaptadorPersonajes adaptadorPersonajes = new AdaptadorPersonajes(this);
         spinner.setAdapter(adaptadorPersonajes);
@@ -75,7 +94,6 @@ public class PersonajeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PersonajeActivity.this, IntroDatos.class);
-                Bundle bundle = new Bundle();
                 bundle.putInt("int",seleccion);
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -86,12 +104,12 @@ public class PersonajeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PersonajeActivity.this, MostrarDatos.class);
-                Bundle bundle = new Bundle();
                 bundle.putInt("int",seleccion);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
+
 
 
     }

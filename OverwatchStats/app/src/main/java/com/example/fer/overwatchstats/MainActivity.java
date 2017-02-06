@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
         final SQLiteDatabase db = partidas.getWritableDatabase();
 
         //Esto es para introducir un usuario nuevo
-        /*
-        if (db!=null){
+
+        /*if (db!=null){
             db.execSQL("INSERT INTO usuarios (user) VALUES ('admin');");
-        }
-        */
+        }*/
+
 
         final Button loginBtn = (Button)findViewById(R.id.logButton);
         final Button signinBtn = (Button)findViewById(R.id.signButton);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("Signin");
                 //Arrancar la pantalla de Registro
-                mostrarSignIn();
+                mostrarSignIn(db);
             }
         });
     }
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Dialog Crear Usuario
-    public void mostrarSignIn(){
+    public void mostrarSignIn(final SQLiteDatabase db){
         //Falta utilizar un fragment
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -100,16 +100,14 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                         Toast toast1 =
                                 Toast.makeText(getApplicationContext(),
                                         "Usuario "+ nomUsuario.getText().toString() +" creado correctamente", Toast.LENGTH_SHORT);
-
                         toast1.show();
 
                         //Sentencia SQL para crear nueva tabla
-                        nomUsuario.getText().toString();
-                        //db.execSQL("INSERT INTO Usuarios (user) VALUES ("+nomUsuario+")");
+                        String nom = nomUsuario.getText().toString();
+                        db.execSQL("INSERT INTO usuarios (user) VALUES (\""+nom+"\");");
 
                         dialogInterface.dismiss();
                     }

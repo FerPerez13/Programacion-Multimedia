@@ -46,7 +46,15 @@ public class IntroDatos extends AppCompatActivity {
 
 
         Bundle bundle = getIntent().getExtras();
-        int seleccion = (int)bundle.getInt("int");
+        String usuario = bundle.getString("user");
+        int seleccion = bundle.getInt("int");
+
+        //Mensaje de usuario logeado correctamente
+        Toast toast1 =
+                Toast.makeText(getApplicationContext(),
+                        "Usuario: "+ usuario + "\nPersonaje: "+per[seleccion].getNombre(), Toast.LENGTH_SHORT);
+        toast1.show();
+        //Fin Toast
 
         imageView.setImageResource(per[seleccion].getImagen());
 

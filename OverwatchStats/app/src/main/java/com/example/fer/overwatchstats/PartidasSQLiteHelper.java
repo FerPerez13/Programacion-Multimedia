@@ -11,11 +11,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PartidasSQLiteHelper extends SQLiteOpenHelper{
 
     //Sentencia SQL que nos permite crear la tabla Usuarios
-    String userSQL = "CREATE TABLE usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT);";
+    String userSQL = "CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT);";
     //Sentencia SQL que nos permite crear la tabla Heroes
-    String heroesSQL = "CREATE TABLE heroes (id INTEGER, name TEXT);";
+    String heroesSQL = "CREATE TABLE IF NOT EXISTS heroes (id INTEGER, name TEXT);";
     //Sentecia SQL que nos permite crear la tabla Partidas
-    String matchSQL = "CREATE TABLE match (id INTEGER, id_user INTEGER, id_herore INTEGER, wins INTEGER, draw INTEGER, lose INTEGER, damage_received INTEGER, damage_done INTEGER);";
+    String matchSQL = "CREATE TABLE IF NOT EXISTS match (id INTEGER, id_user INTEGER, id_herore INTEGER, wins INTEGER, draw INTEGER, lose INTEGER, damage_received INTEGER, damage_done INTEGER);";
 
     public PartidasSQLiteHelper(Context context, String nombre, SQLiteDatabase.CursorFactory almacen, int version){
         super (context, nombre, almacen, version);
@@ -35,7 +35,12 @@ public class PartidasSQLiteHelper extends SQLiteOpenHelper{
         db.execSQL(userSQL);
         db.execSQL(heroesSQL);
         db.execSQL(matchSQL);
+    }
 
+    public void creaBD(SQLiteDatabase db){
+        db.execSQL(userSQL);
+        db.execSQL(heroesSQL);
+        db.execSQL(matchSQL);
     }
 
 
