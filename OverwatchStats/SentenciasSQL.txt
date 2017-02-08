@@ -1,0 +1,3 @@
+SELECT * FROM partidas WHERE id_user = 1 AND id_heroe = 2
+
+INSERT INTO partidas (id_user, id_heroe, resultado, asesinatos, asistencias, muertes, daño_rec, daño_rea) VALUES (2,4,1,2,10,3,10000,200)

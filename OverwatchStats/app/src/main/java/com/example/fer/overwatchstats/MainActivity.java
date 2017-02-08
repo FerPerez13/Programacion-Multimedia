@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //Sentencia SQL para crear nueva tabla
                         String nom = nomUsuario.getText().toString();
-                        db.execSQL("INSERT INTO usuarios (user) VALUES (\""+nom+"\");");
+                        db.execSQL("INSERT INTO usuarios (user) VALUES (\""+nom+"\");"); //Sentencia para crear nuevo usuario
 
                         dialogInterface.dismiss();
                     }
