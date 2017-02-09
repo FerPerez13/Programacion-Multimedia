@@ -103,8 +103,7 @@ public class PersonajeActivity extends AppCompatActivity {
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PersonajeActivity.this, MostrarDatos.class);
-                bundle.putInt("int",seleccion);
+                Intent intent = new Intent(PersonajeActivity.this, MostrarPartidas.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

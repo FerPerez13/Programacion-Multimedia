@@ -41,6 +41,8 @@ public class IntroDatos extends AppCompatActivity {
             new Personaje("Zenyatta", R.drawable.zenyatta),
     };
 
+    final static int[] resultados={0,0,0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +70,8 @@ public class IntroDatos extends AppCompatActivity {
         final EditText dañoRecib = (EditText)findViewById(R.id.dañoRecibido);
 
         Bundle bundle = getIntent().getExtras();
-        String usuario = bundle.getString("user");
-        int seleccion = bundle.getInt("int");
+        final String usuario = bundle.getString("user");
+        final int seleccion = bundle.getInt("int");
 
         //Mensaje de usuario logeado correctamente
         Toast toast1 =
@@ -78,11 +80,29 @@ public class IntroDatos extends AppCompatActivity {
         toast1.show();
         //Fin Toast
 
-        final String res = "";
+        //Resultado de la partida
+
+
         resultado.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                //Seleccionar y guardar el resultado de la partida
+
+                if (gana.getId()==checkedId){
+                    resultados[0]=1;
+                    resultados[1]=0;
+                    resultados[2]=0;
+                }
+                if (empt.getId()==checkedId){
+                    resultados[0]=0;
+                    resultados[1]=1;
+                    resultados[2]=0;
+                }
+                if (pierd.getId()==checkedId){
+                    resultados[0]=0;
+                    resultados[1]=0;
+                    resultados[2]=1;
+                }
+
             }
         });
 
@@ -98,18 +118,29 @@ public class IntroDatos extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Sentencias para guardar los datos en la base de datos
-
                 //Guardar todos los datos en variables
-                final int asesin = parseInt(asesinatos.getText().toString());
-                final int muert = parseInt(muertes.getText().toString());
-                final int asist = parseInt(asistencias.getText().toString());
-                final int dañoRea = parseInt(dañoRealiz.getText().toString());
-                final int dañoRec = parseInt(dañoRecib.getText().toString());
+                int asesin = parseInt(asesinatos.getText().toString());
+                int muert = parseInt(muertes.getText().toString());
+                int asist = parseInt(asistencias.getText().toString());
+                int dañoRea = parseInt(dañoRealiz.getText().toString());
+                int dañoRec = parseInt(dañoRecib.getText().toString());
+
+                //Sentencia para guardar los datos en la base de datos
+                db.execSQL("INSERT INTO match (user, id_heroe, wins, draw, lose, kill, asists, death, damage_received, damage_done) " +
+                        "VALUES (\""+usuario+"\", \""+seleccion+"\", \""+resultados[0]+"\", \""+resultados[1]+"\", \""+resultados[2]+"\", " +
+                        "\""+asesin+"\", \""+muert+"\", \""+asist+"\", \""+dañoRec+"\", \""+dañoRea+"\")");
+
+                //Esto es para el toast que me chiva si se está guardando bien ;)
+                String res = "EMPATE";
+                if (resultados[0]==1)
+                    res = "GANADA";
+                if (resultados[2]==1)
+                    res = "PERDIDA";
 
                 Toast toast1 =
                         Toast.makeText(getApplicationContext(),
                                 "Datos de la partida guardados correctamente:" +
+                                        "Seleccion: "+ seleccion +
                                         "\nResultado: "+ res +
                                         "\nAsesinatos: " + asesin+
                                         "\nAsistencias: " + muert+

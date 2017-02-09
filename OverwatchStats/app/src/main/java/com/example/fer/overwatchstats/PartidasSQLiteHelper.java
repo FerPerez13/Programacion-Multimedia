@@ -13,9 +13,9 @@ public class PartidasSQLiteHelper extends SQLiteOpenHelper{
     //Sentencia SQL que nos permite crear la tabla Usuarios
     String userSQL = "CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT);";
     //Sentecia SQL que nos permite crear la tabla Partidas
-    String matchSQL = "CREATE TABLE IF NOT EXISTS match (id INTEGER PRIMARY KEY AUTOINCREMENT, id_user INTEGER, id_heroe INTEGER, wins INTEGER, " +
-            "draw INTEGER, lose INTEGER, damage_received INTEGER, damage_done INTEGER)" +
-            ";";
+    String matchSQL = "CREATE TABLE IF NOT EXISTS match (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, id_heroe INTEGER, wins INTEGER, " +
+            "draw INTEGER, lose INTEGER, kill INTEGER, asists INTEGER, death INTEGER, damage_received INTEGER, damage_done INTEGER);";
+
 
     public PartidasSQLiteHelper(Context context, String nombre, SQLiteDatabase.CursorFactory almacen, int version){
         super (context, nombre, almacen, version);
