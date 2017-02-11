@@ -24,7 +24,7 @@ public class Partida implements Serializable {
 
     private int cambio;
 
-    public Partida(String nombre, int imagen, int gana, int pierde, int empata, int asesinatos, int muertes, int asistencias, double dañoHecho, double dañoRec) {
+    public Partida(String nombre, int imagen, int gana, int empata, int pierde, int asesinatos, int asistencias, int muertes, double dañoHecho, double dañoRec) {
         this.nombre = nombre;
         this.imagen = imagen;
         this.gana = gana;

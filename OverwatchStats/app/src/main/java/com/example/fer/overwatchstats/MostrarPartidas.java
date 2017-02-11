@@ -70,8 +70,9 @@ public class MostrarPartidas extends AppCompatActivity {
         //Rellenamos el Array para la lista
         partida=new Partida[] {};
         String[] dataFields = new String[] {"user", "id_heroe", "wins", "draw", "lose", "kill", "asists", "death", "damage_received", "damage_done"};
+        String whereClausure = "user = '"+usuario+"'"; //Sentencia Where user = usuario
         String[] dataSelection = new String[] {usuario};
-        Cursor cursor = db.query("match", dataFields, null, null, null, null, null);
+        Cursor cursor = db.query("match", dataFields, whereClausure, null, null, null, null);
         Partida fetchUsers[];
         fetchUsers=new Partida[cursor.getCount()];
         int i=0;
@@ -83,19 +84,13 @@ public class MostrarPartidas extends AppCompatActivity {
                 int empat = cursor.getInt(3);
                 int pierde = cursor.getInt(4);
                 int asesin = cursor.getInt(5);
-                int asiste = cursor.getInt(5);
-                int muere = cursor.getInt(6);
-                int dRecibido = cursor.getInt(7);
+                int asiste = cursor.getInt(6);
+                int muere = cursor.getInt(7);
+                int dRecibido = cursor.getInt(9);
                 int dRealizado = cursor.getInt(8);
 
-                //TODO: Falta poner una sentencia para solo mostrar las estadisticas de un usuario no de todos
                 Partida partida = new Partida(nombre, per[idHeroe].getImagen(), gana, empat, pierde, asesin, asiste, muere, dRecibido, dRealizado);
                 fetchUsers[i] = partida;
-
-                //if (usuario.toString().compareTo(nombre.toString())==0) {
-                //    Partida partida = new Partida(nombre, per[idHeroe].getImagen(), gana, empat, pierde, asesin, asiste, muere, dRecibido, dRealizado);
-                //    fetchUsers[i] = partida;
-                //}
 
                 i++;
             } while (cursor.moveToNext());
@@ -133,10 +128,10 @@ public class MostrarPartidas extends AppCompatActivity {
                 result.setText("GANADA");
             }
             if (partida[i].getEmpata()==1) {
-                result.setText("PERDIDA");
+                result.setText("EMPATE");
             }
             if (partida[i].getPierde()==1) {
-                result.setText("EMPATE");
+                result.setText("PERDIDA");
             }
 
             TextView kills = (TextView)item.findViewById(R.id.kills);
