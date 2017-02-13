@@ -60,12 +60,6 @@ public class MostrarPartidas extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         final String usuario = bundle.getString("user");
 
-        //Mensaje de usuario logeado correctamente
-        Toast toast1 =
-                Toast.makeText(getApplicationContext(),
-                        "Usuario: "+ usuario, Toast.LENGTH_SHORT);
-        toast1.show();
-        //Fin Toast
 
         //Rellenamos el Array para la lista
         partida=new Partida[] {};
@@ -84,8 +78,8 @@ public class MostrarPartidas extends AppCompatActivity {
                 int empat = cursor.getInt(3);
                 int pierde = cursor.getInt(4);
                 int asesin = cursor.getInt(5);
-                int asiste = cursor.getInt(6);
-                int muere = cursor.getInt(7);
+                int asiste = cursor.getInt(7);
+                int muere = cursor.getInt(6);
                 int dRecibido = cursor.getInt(9);
                 int dRealizado = cursor.getInt(8);
 

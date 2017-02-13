@@ -73,12 +73,6 @@ public class IntroDatos extends AppCompatActivity {
         final String usuario = bundle.getString("user");
         final int seleccion = bundle.getInt("int");
 
-        //Mensaje de usuario logeado correctamente
-        Toast toast1 =
-                Toast.makeText(getApplicationContext(),
-                        "Usuario: "+ usuario + "\nPersonaje: "+per[seleccion].getNombre(), Toast.LENGTH_SHORT);
-        toast1.show();
-        //Fin Toast
 
         //Resultado de la partida
 
@@ -139,15 +133,7 @@ public class IntroDatos extends AppCompatActivity {
 
                 Toast toast1 =
                         Toast.makeText(getApplicationContext(),
-                                "Datos de la partida guardados correctamente:" +
-                                        "Seleccion: "+ seleccion +
-                                        "\nResultado: "+ res +
-                                        "\nAsesinatos: " + asesin+
-                                        "\nAsistencias: " + muert+
-                                        "\nMuertes: " + asist +
-                                        "\nDaño recibido: " + dañoRea +
-                                        "\nDaño realizado " + dañoRec,
-                                Toast.LENGTH_SHORT);
+                                "Datos de la partida guardados correctamente:", Toast.LENGTH_SHORT);
                 toast1.show();
                 finish();
             }

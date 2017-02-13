@@ -83,7 +83,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Pasar con un Bundle el nombre del usuario que está accediendo a su cuenta
-
                 Intent intent = new Intent(Login.this, PersonajeActivity.class);
                 intent.putExtras(miBundle);
                 if (usuarios!=null)

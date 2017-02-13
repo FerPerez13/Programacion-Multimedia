@@ -63,7 +63,7 @@ public class PersonajeActivity extends AppCompatActivity {
         Bundle miBundle = getIntent().getExtras();
         String usuario = miBundle.getString("Texto1");
 
-        bundle.putString("user",usuario); //Esto es lo que falla CUIDAAAAAAAAOOOOO
+        bundle.putString("user",usuario);
 
 
         //Mensaje de usuario logeado correctamente
